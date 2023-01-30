@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Dojo</title>
+</head>
+
+<body>
+    <div id="container" class="card-body">
+
+        <div id="dojo_holder">
+            <h1 class="card-title">{{dojo.name}}Dojo</h1>
+
+            <table class=" table tatable table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            First Name</th>
+                        <th>
+                            Last Name </th>
+                        <th>Age</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ninja in ninja %}
+                    <tr>
+
+                        <td>{{ninja.first_name}}</td>
+                        <td>{{ninja.last_name}}</td>
+                        <td>{{ninja.age}}</td>
+                        <td><a href="/dojo/ninja_edit/{{ninja.id}}">Edit</a></td>
+                        <td><a href="/dojo/delete_ninja/{{ninja.id}}">Delete</a></td>
+                        {%endfor%}
+                    </tr>
+                </tbody>
+            </table>
+            <a href="/dojo">Home</a>
+        </div>
+
+    </div>
+
+</body>
